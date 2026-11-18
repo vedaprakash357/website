@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Studio — Dynamic Web Showcase</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="logo">Nova<span>.</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="themeToggle" class="btn-icon" aria-label="Toggle dark mode" title="Toggle theme">
+          🌙
+        </button>
+        <button id="menuToggle" class="btn-icon menu-btn" aria-label="Toggle menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <p class="eyebrow">Interactive Front-End Architecture</p>
+      <h1>Build interfaces that <span class="accent">respond</span> in real time.</h1>
+      <p class="hero-subtitle">
+        A clean starter template powered by vanilla HTML, modern CSS variables, and reactive JavaScript.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">Explore Projects</a>
+        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Featured Work</h2>
+          <p class="muted">Filter by category or search by keyword.</p>
+        </div>
+        <input
+          type="search"
+          id="projectSearch"
+          class="search-input"
+          placeholder="Search projects..."
+          aria-label="Search projects"
+        />
+      </div>
+
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="web">Web Apps</button>
+        <button class="filter-btn" data-category="ui">UI Systems</button>
+        <button class="filter-btn" data-category="tools">Tools</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Populated dynamically via script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section alt-bg">
+    <div class="container about-grid">
+      <div>
+        <h2>Why Vanilla Web Stack?</h2>
+        <p>
+          Zero build overhead, instant page loads, and full control over DOM state, animations, and browser APIs.
+        </p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number" data-target="100">0</span><span>%</span>
+          <p>Responsive Layout</p>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="60">0</span><span>fps</span>
+          <p>Smooth Transitions</p>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-target="0">0</span><span>kb</span>
+          <p>External Framework Bloat</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container contact-box">
+      <h2>Start a Conversation</h2>
+      <p class="muted">Send a quick note—form validation runs live in JavaScript.</p>
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Alex Rivera" required />
+          <small class="error-msg" id="nameError"></small>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="alex@example.com" required />
+          <small class="error-msg" id="emailError"></small>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell me what you're building..." required></textarea>
+          <small class="error-msg" id="messageError"></small>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Project Detail Modal -->
+  <div class="modal-backdrop" id="projectModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+      <span class="badge" id="modalCategory"></span>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+      <div class="modal-tags" id="modalTags"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>&copy; <span id="year"></span> Nova Studio. Built with HTML, CSS &amp; JS.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
